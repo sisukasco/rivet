@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redirecting to Stripe ...</title>
+    <style>
+        body{
+            font-family: ui-sans-serif, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        }
+    </style>
+    <script src="https://js.stripe.com/v3/" ></script>
+</head>
+<body>
+    <h1 style="color:#D1D5DB;">Redirecting to Stripe ...</h1>
+    <div id="message_area"></div>
+    <script>
+        (function() {
+            if(!payment)
+            {
+                console.log("payment not set")
+                return
+            }
+            
+            const status={
+                submission_id: payment.submission_id
+            }
+            const key = "payment_"+formID
+            sessionStorage.setItem(key, JSON.stringify(status))
+            
+            var stripe = Stripe(payment.api_key);
+            
+            stripe.redirectToCheckout({
+                sessionId: payment.checkout_id
+                }).then(function(resp)
+                {
+                    console.log("resp ", resp)
+                });
+            
+        })();
+    </script>
+</body>
+</html>

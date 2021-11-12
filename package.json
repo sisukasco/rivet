@@ -1,0 +1,56 @@
+{
+  "name": "@sisukas/rivet",
+  "version": "1.0.7",
+  "license": "MIT",
+  "main": "dist/main.js",
+  "types": "dist/src/index.d.ts",
+  "typings": "dist/src/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "rm -rf ./dist && webpack",
+    "dev": "rm -rf ./dist && webpack --watch",
+    "prod": "rm -rf ./dist && webpack --mode=\"production\"",
+    "release": "yarn publish  --access public",
+    "devdep": "yarn build && cp ./dist/main.js ../site/static/c/ld.js",
+    "sizeup": "webpack --json > stats.json && webpack-bundle-analyzer stats.json"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@testing-library/dom": "^8.1.0",
+    "@testing-library/user-event": "^13.1.9",
+    "@types/faker": "^5.5.6",
+    "@types/jest": "^26.0.10",
+    "@types/node": "^15.14.0",
+    "@types/sisukas__jquery": "ssh://git@github.com:sisukasco/jQueryTypes.git",
+    "@types/stripe-v3": "^3.1.23",
+    "@types/uniqid": "^5.3.0",
+    "autoprefixer": "^10.2.6",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^5.2.6",
+    "faker": "^5.1.0",
+    "file-loader": "^6.0.0",
+    "html-loader": "^2.1.2",
+    "jest": "^27.0.6",
+    "postcss": "^8.3.11",
+    "postcss-loader": "^6.2.0",
+    "rimraf": "^3.0.2",
+    "style-loader": "^3.0.0",
+    "ts-jest": "^27.0.3",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.5",
+    "url-loader": "^4.1.0",
+    "webpack": "^5.41.1",
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "@sisukas/boel": "^1.0.8",
+    "@sisukas/form-parser": "^1.0.16",
+    "@sisukas/jquery": "^3.6.0",
+    "@sisukas/tus-js-client": "^2.3.1",
+    "axios": "^0.21.1",
+    "query-string": "^7.0.1"
+  }
+}

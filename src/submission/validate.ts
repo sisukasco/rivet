@@ -1,0 +1,83 @@
+import {Field} from "../api/settings"
+import {FormDataValues} from "../api/SubmissionRecord"
+import {makeBoel} from "@sisukas/boel";
+import $ from "@sisukas/jquery";
+import {commonAncestor} from "./parent"
+export interface ErrorMap {
+    [field: string]: {
+        message: string;
+    };
+}
+
+export class OpResult {
+    hasErrors:boolean=false
+    errors:ErrorMap={}
+}
+
+
+
+export function validateForm(form:HTMLFormElement, 
+    fields:Field[], fdd:FormDataValues)
+{
+    let b = makeBoel();
+    console.log("fields ", fields)
+    console.log("fdd ", fdd)
+    let res = b.validateFields(fields, fdd);
+    $(".dockform-error", $(form)).remove();
+    if(res.has_errors && res.error_map)
+    {
+        return showErrorsNextToElements(form, res.error_map)
+    }
+    return true;
+}
+
+export function showErrorsNextToElements(form:HTMLFormElement, errors_map: ErrorMap){
+    let other_errors:string[]=[]
+    $(".dockform-error", $(form)).remove();
+    for(let f in errors_map)
+    {
+        let e = errors_map[f].message; 
+        let elm = getElement(f, form);
+        if(!elm)
+        {
+            other_errors.push(e)
+            continue;
+        }
+        if(elm.length > 1)
+        {
+            console.log("Displaying error for an array of elements")
+            let elms = elm.get()
+            let parent = commonAncestor(elms[0],elms[elms.length - 1 ])
+            if(parent)
+            {
+                console.log("common parent found")
+                $(parent).append(`<div class="dockform-error">${e}</div>`);
+            }else{
+                console.log("common parent was not found")
+            }
+            
+        }
+        else
+        {
+            $(elm).after(`<div class="dockform-error">${e}</div>`);    
+        }
+        
+    }
+
+    return other_errors;
+}
+//TODO: use ID of element also (instead of name)
+function getElement(name:string, form:HTMLFormElement)
+{
+    let $e = $(`[name="${name}"]`, form);
+    if($e.length <= 0)
+    {
+        $e = $('#'+name, form);
+        if($e.length <= 0)
+        {
+            return null;
+        }
+    }
+    return $e;
+    
+}
