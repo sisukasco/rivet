@@ -5,26 +5,26 @@ import { uploadFile } from './upload';
 import {SubmissionResponse } from './responses';
 
 
-export interface IDockAPI
+export interface IRatufaAPI
 {
     postForm(sr:SubmissionRecord):Promise<SubmissionResponse>
     uploadFile(file:File, field_name:string):Promise<string>
 }
 
-export class DockAPI implements IDockAPI
+export class RatufaAPI implements IRatufaAPI
 {
-    private dockFormURL:string="";
+    private ratufaURL:string="";
     private token:string="";
     
-    constructor(private dockFormID:string)
+    constructor(private ratufaFormID:string)
     {
         if(process.env.NODE_ENV == "production")
         {
-            this.dockFormURL = "https://api.dockform.com";
+            this.ratufaURL = "https://api.ratufa.io";
         }
         else
         {
-            this.dockFormURL = "http://localhost:3121";
+            this.ratufaURL = "http://localhost:3121";
         }
     }
     
@@ -33,7 +33,7 @@ export class DockAPI implements IDockAPI
     {
         let p = new Promise<FormSettings>((resolve, reject)=>
         {
-            const strUrl = this.dockFormURL+"/v1.0/form/"+this.dockFormID+"/token";
+            const strUrl = this.ratufaURL+"/v1.0/form/"+this.ratufaFormID+"/token";
             
             Axios.post(strUrl, {
                 token: prev_token,
@@ -53,7 +53,7 @@ export class DockAPI implements IDockAPI
     
     async postFormSettings(fs: Object)
     {
-        const url = this.dockFormURL+"/v1.0/form/"+this.dockFormID+"/init";
+        const url = this.ratufaURL+"/v1.0/form/"+this.ratufaFormID+"/init";
         await Axios.post(url,fs);
         return true;
     }
@@ -62,7 +62,7 @@ export class DockAPI implements IDockAPI
     {
         let p = new Promise<SubmissionResponse>((resolve, reject)=>
         {
-            const url = this.dockFormURL+"/v1.0/form/"+this.dockFormID+"/submission";
+            const url = this.ratufaURL+"/v1.0/form/"+this.ratufaFormID+"/submission";
 
             Axios.post(url,sr).then((resp:AxiosResponse)=>{
                 const tu:SubmissionResponse = resp.data
@@ -77,18 +77,18 @@ export class DockAPI implements IDockAPI
     
     async uploadFile(file:File, field_name:string):Promise<string>
     {
-        const endpoint = this.dockFormURL+ "/upload/";
-        return uploadFile(endpoint,this.dockFormID,this.token,field_name, file)
+        const endpoint = this.ratufaURL+ "/upload/";
+        return uploadFile(endpoint,this.ratufaFormID,this.token,field_name, file)
     }
     
     async commitSubmission(token:string)
     {
         let p = new Promise<SubmissionResponse>((resolve, reject)=>
         {
-           // const url = this.dockFormURL+"/s/commit/form"
-           const url = this.dockFormURL+"/v1.0/form/"+this.dockFormID+"/submission:commit";
+           // const url = this.ratufaURL+"/s/commit/form"
+           const url = this.ratufaURL+"/v1.0/form/"+this.ratufaFormID+"/submission:commit";
 
-            Axios.post(url,{form_id:this.dockFormID, token}).then((resp:AxiosResponse)=>{
+            Axios.post(url,{form_id:this.ratufaFormID, token}).then((resp:AxiosResponse)=>{
                 const tu:SubmissionResponse = resp.data
                 resolve(tu)
             }).catch((e:AxiosError)=>{
@@ -103,8 +103,8 @@ export class DockAPI implements IDockAPI
     {
         let p = new Promise<SubmissionResponse>((resolve, reject)=>
         {
-           // const url = this.dockFormURL+"/s/commit/form"
-           const url = this.dockFormURL+"/v1.0/form/"+this.dockFormID+"/payment:response";
+           // const url = this.ratufaURL+"/s/commit/form"
+           const url = this.ratufaURL+"/v1.0/form/"+this.ratufaFormID+"/payment:response";
 
             Axios.post(url,{submission_id}).then((resp:AxiosResponse)=>{
                 const tu:SubmissionResponse = resp.data

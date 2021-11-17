@@ -5,7 +5,7 @@ export async function getLocation(){
     let p = new Promise<Location>((resolve, reject)=>
     {
         //const url = "https://blip.runway7.net/";
-        const url = "https://loc.dockform.com/";
+        const url = "https://loc.ratufa.io/";
         
         Axios.get(url).then((resp:AxiosResponse)=>
         {

@@ -10,39 +10,39 @@ export default class Popup
     {
         $('body').append(pop);
 
-        $('.dockform-popup-close', $('#dockform_popup')).on("click",()=>{
+        $('.ratufa-popup-close', $('#ratufa_popup')).on("click",()=>{
             this.hide()
         })
     }
-    public showPopup(content:string, title:string="DockForm")
+    public showPopup(content:string, title:string="Ratufa")
     {
         this.show({title, content})
     }
     public show(options:PopupOptions)
     {
-        let $dp = $('#dockform_popup');
+        let $dp = $('#ratufa_popup');
     
         if(!options.title)
         {
-            $('.dockform-popup-title', $dp).hide();    
+            $('.ratufa-popup-title', $dp).hide();    
         }
         else
         {
-            $('.dockform-popup-title', $dp).html(options.title).show();
+            $('.ratufa-popup-title', $dp).html(options.title).show();
         }
-        $('.dockform-popup-close', $dp).show();
+        $('.ratufa-popup-close', $dp).show();
         
-        $('.dockform-popup-content', $dp).html(options.content)
-        $('#dockform_popup').css({"visibility":"visible","opacity":100})
+        $('.ratufa-popup-content', $dp).html(options.content)
+        $('#ratufa_popup').css({"visibility":"visible","opacity":100})
     }
     public showAnimation()
     {
-        let $dp = $('#dockform_popup');
-        $('.dockform-popup-title', $dp).hide();
-        $('.dockform-popup-close', $dp).hide();
-        $('.dockform-popup-content', $dp).html(progress);
+        let $dp = $('#ratufa_popup');
+        $('.ratufa-popup-title', $dp).hide();
+        $('.ratufa-popup-close', $dp).hide();
+        $('.ratufa-popup-content', $dp).html(progress);
         
-        $('#dockform_popup').css({"visibility":"visible","opacity":100});
+        $('#ratufa_popup').css({"visibility":"visible","opacity":100});
     }
     public showProgress()
     {
@@ -50,6 +50,6 @@ export default class Popup
     }
     public hide()
     {
-        $('#dockform_popup').css({"visibility":"hidden","opacity":0})
+        $('#ratufa_popup').css({"visibility":"hidden","opacity":0})
     }
 }

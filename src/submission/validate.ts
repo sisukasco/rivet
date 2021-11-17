@@ -23,7 +23,7 @@ export function validateForm(form:HTMLFormElement,
     console.log("fields ", fields)
     console.log("fdd ", fdd)
     let res = b.validateFields(fields, fdd);
-    $(".dockform-error", $(form)).remove();
+    $(".ratufa-error", $(form)).remove();
     if(res.has_errors && res.error_map)
     {
         return showErrorsNextToElements(form, res.error_map)
@@ -33,7 +33,7 @@ export function validateForm(form:HTMLFormElement,
 
 export function showErrorsNextToElements(form:HTMLFormElement, errors_map: ErrorMap){
     let other_errors:string[]=[]
-    $(".dockform-error", $(form)).remove();
+    $(".ratufa-error", $(form)).remove();
     for(let f in errors_map)
     {
         let e = errors_map[f].message; 
@@ -51,7 +51,7 @@ export function showErrorsNextToElements(form:HTMLFormElement, errors_map: Error
             if(parent)
             {
                 console.log("common parent found")
-                $(parent).append(`<div class="dockform-error">${e}</div>`);
+                $(parent).append(`<div class="ratufa-error">${e}</div>`);
             }else{
                 console.log("common parent was not found")
             }
@@ -59,7 +59,7 @@ export function showErrorsNextToElements(form:HTMLFormElement, errors_map: Error
         }
         else
         {
-            $(elm).after(`<div class="dockform-error">${e}</div>`);    
+            $(elm).after(`<div class="ratufa-error">${e}</div>`);    
         }
         
     }

@@ -2,7 +2,7 @@
 import {FormElement} from "./FormElement"
 import {FormDataValues, FileUpload} from "../api/SubmissionRecord"
 import $ from "@sisukas/jquery";
-import { IDockAPI } from '../api';
+import { IRatufaAPI } from '../api';
 import {OpResult} from "./validate";
 
 interface UploadExceptionInterface{
@@ -117,7 +117,7 @@ export class FileUploadHandler
         })
     }
     
-    public async uploadFiles(fd:FormDataValues, api:IDockAPI)
+    public async uploadFiles(fd:FormDataValues, api:IRatufaAPI)
     {
         const promises:Promise<UploadedFile>[]=[]
         for(let field in this.files)
@@ -170,7 +170,7 @@ export class FileUploadHandler
         return result
     }
     
-    private async uploadOneFile(field:string, fi:File , api:IDockAPI ){
+    private async uploadOneFile(field:string, fi:File , api:IRatufaAPI ){
         let upload_id=""
         try{
             upload_id = await api.uploadFile(fi, field)

@@ -1,5 +1,5 @@
 
-export * from "./DockAPI";
+export * from "./RatufaAPI";
 
 export * from "./responses";
 

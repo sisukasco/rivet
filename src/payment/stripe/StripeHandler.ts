@@ -1,5 +1,5 @@
 import $ from "@sisukas/jquery"
-import {ComputedPayment, DockAPI} from "../../api";
+import {ComputedPayment, RatufaAPI} from "../../api";
 import stripe_button from "./StripeButton.html";
 import stripe_window from "./StripeWindow.html";
 import {IDisplay} from "../../display/IDisplay";
@@ -15,10 +15,10 @@ declare global {
 
 export async function showStripeButton(formID:string, payment:ComputedPayment,
     display:IDisplay,
-    api:DockAPI)
+    api:RatufaAPI)
 {
     display.popup.show({content: stripe_button});
-    $("#dockform_stripe_button").on("click", ()=>
+    $("#ratufa_stripe_button").on("click", ()=>
     {
         window.stripePaymentSuccessful=async ()=>
         {

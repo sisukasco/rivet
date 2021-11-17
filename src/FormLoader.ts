@@ -4,14 +4,14 @@ import $ from "@sisukas/jquery"
 export class FormLoader
 {
     public error=""
-    public dockFormID=""
+    public ratufaFormID=""
     public clientFormID=""
     public partialStatus="none"
     public form:HTMLFormElement|null=null
     
     public getScriptTagURL()
     {
-        let src = $("#dockform_loader").attr('src')
+        let src = $("#ratufa_loader").attr('src')
         if(!src)
         {
             this.error = `Couldn't get the parameters for accessing the form. You have to copy and paste the script tag correctly`;
@@ -35,11 +35,11 @@ export class FormLoader
         
         if(typeof parsedUrl.query.f != "string")
         {
-            this.error = `The DockForm ID Parameter is incorrect. Please copy & paste the code correctly.`
+            this.error = `The Ratufa ID Parameter is incorrect. Please copy & paste the code correctly.`
             return false;
         }
         
-        this.dockFormID = parsedUrl.query.f; 
+        this.ratufaFormID = parsedUrl.query.f; 
         
         if(parsedUrl.query.i)
         {
