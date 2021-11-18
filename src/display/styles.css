@@ -1,7 +1,7 @@
 /*
 Source: https://codepen.io/imprakash/pen/GgNMXO
 */
-.dockform-overlay 
+.ratufa-overlay 
 {
     position: fixed;
     top: 0;
@@ -14,7 +14,7 @@ Source: https://codepen.io/imprakash/pen/GgNMXO
     opacity: 0;
 }
 
-.dockform-popup-container{
+.ratufa-popup-container{
     margin: 70px auto;
     position: relative;
     background: #fff;
@@ -27,7 +27,7 @@ Source: https://codepen.io/imprakash/pen/GgNMXO
     color: #4a5568;
     line-height: 150%;
 }
-.dockform-popup-container .dockform-popup-close {
+.ratufa-popup-container .ratufa-popup-close {
     position: absolute;
     top: 10px;
     right: 10px; 
@@ -36,32 +36,32 @@ Source: https://codepen.io/imprakash/pen/GgNMXO
     text-decoration: none;
     color: #2d3748;
 }
-.dockform-popup-container .dockform-popup-close:hover{
+.ratufa-popup-container .ratufa-popup-close:hover{
     color: #4299e1;
 }
-.dockform-popup-container  .dockform-popup-title
+.ratufa-popup-container  .ratufa-popup-title
 {
     font-size: 22px;
     margin-bottom: 10px;
 }
 
-.dockform-popup 
+.ratufa-popup 
 {
     padding: 15px;
 }
-.dockform-error{
+.ratufa-error{
     color: #d32f2f;
     font-size: 0.8rem;
     padding: 0.25rem;
 }
 
-.dockform-spinner
+.ratufa-spinner
 {
     display: flex;
     flex-direction: column;
     align-items: center;   
 }
-.dockform-spinner-status
+.ratufa-spinner-status
 {
     font-weight: bold;
     font-size: 18px;
@@ -69,14 +69,14 @@ Source: https://codepen.io/imprakash/pen/GgNMXO
     color: #a0aec0;
     margin-top:1rem;
 }
-.dockform-spinner-animation,
-.dockform-spinner-animation:after {
+.ratufa-spinner-animation,
+.ratufa-spinner-animation:after {
   border-radius: 50%;
   width: 6em;
   height: 6em;
   overflow:hidden;
 }
-.dockform-spinner-animation {
+.ratufa-spinner-animation {
   font-size: 10px;
   position: relative;
   text-indent: -9999em;
@@ -111,18 +111,18 @@ Source: https://codepen.io/imprakash/pen/GgNMXO
   }
 }
 
-#dockform_stripe_button
+#ratufa_stripe_button
 {
     padding:1rem 2rem; 
     background: #1e90ff; border-radius: 6px; font-family: sans-serif; font-weight: bold; color:#F3F4F6; border:0; cursor:pointer; font-size:1.25rem;    
     transition-timing-function: ease-in;
     transition-duration: 100ms;
 }
-#dockform_stripe_button:hover{
+#ratufa_stripe_button:hover{
     color:#fff;
     transform: scale(104%);
 }
-#dockform_stripe_button:active
+#ratufa_stripe_button:active
 {
     transform: translateY(4px);
 }

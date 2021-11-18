@@ -1,25 +1,25 @@
 import $ from "@sisukas/jquery";
-import {DockForm} from "./DockForm";
+import {Ratufa} from "./Ratufa";
 import {SubmissionRecord} from "./api/SubmissionRecord";
 
 declare global {
-    interface Window { dockForm: DockForm|null; }
+    interface Window { Ratufa: Ratufa|null; }
 }
 
-window.dockForm = null;
+window.Ratufa = null;
 
 
 $(function(){
-    console.log("loading dockForm ...")
-    window.dockForm = new DockForm();
-    if(!window.dockForm.isMute())
+    console.log("loading Ratufa ...")
+    window.Ratufa = new Ratufa();
+    if(!window.Ratufa.isMute())
     {
-        console.log("dockForm is not on mute")
-        window.dockForm.load();    
+        console.log("Ratufa is not on mute")
+        window.Ratufa.load();    
     }
 })
 
 export {
-    DockForm,
+    Ratufa,
     SubmissionRecord
 }

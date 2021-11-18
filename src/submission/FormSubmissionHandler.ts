@@ -3,7 +3,7 @@ import {FormDataCollector} from "./FormDataCollector"
 import {FileUploadHandler} from "./FileUploadHandler"
 import {FormSettings} from "../api/settings"
 import {validateForm, showErrorsNextToElements, OpResult} from "./validate"
-import {IDockAPI, SubmissionResponse} from "../api"
+import {IRatufaAPI, SubmissionResponse} from "../api"
 import {SubmissionRecord} from "../api/SubmissionRecord"
 import {getLocation} from "./location"
 import {IDisplay} from "../display/IDisplay";
@@ -21,7 +21,7 @@ export class FormSubmissionHandler
     
     constructor(private form:HTMLFormElement, 
         private settings:FormSettings,
-        private api:IDockAPI)   
+        private api:IRatufaAPI)   
     {
         this.uploadHandler = new FileUploadHandler(form)
     }
@@ -47,7 +47,7 @@ export class FormSubmissionHandler
         const fdc = new FormDataCollector(this.form)
         const fdd = fdc.getInputs()
         this.uploadHandler.merge(fdd)
-        $(".dockform-error", $(this.form)).remove();
+        $(".ratufa-error", $(this.form)).remove();
         
         const v = validateForm(this.form, this.settings.fields, fdd)
         

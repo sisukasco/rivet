@@ -31,7 +31,7 @@ type Trail={
 
 export class SubmissionRecord
 {
-    public signature="DockForm";
+    public signature="Ratufa";
     public version=1;
     public token:string="";
     public folder="inbox";

@@ -2,7 +2,7 @@ import $ from "@sisukas/jquery"
 import {FormLoader} from "./FormLoader"
 import {parseFormSettings} from "@sisukas/form-parser";
 import {FormSettings} from "./api/settings"
-import {DockAPI, ComputedPayment} from "./api"
+import {RatufaAPI, ComputedPayment} from "./api"
 import {FormSubmissionHandler} from "./submission"
 // @ts-ignore: TS6059: not under 'rootDir'
 import thispackage from '../package.json'; 
@@ -10,12 +10,12 @@ import payment from "./payment";
 import {Display} from "./display/Display";
 
 const version = thispackage.version
-export class DockForm 
+export class Ratufa 
 {
     private display = new Display();
     private formSettings:FormSettings|null=null
-    private dockFormID:string=""
-    private api:DockAPI|null = null
+    private ratufaFormID:string=""
+    private api:RatufaAPI|null = null
     private form:HTMLFormElement|null=null;
     private submissionHandler:FormSubmissionHandler|null=null; 
     private version=version;
@@ -36,7 +36,7 @@ export class DockForm
     
     public async load()
     {
-        console.log("Dockform loader version ", this.version)
+        console.log("Ratufa loader version ", this.version)
         this.display.load();
         const fl = new FormLoader()
         if(!fl.loadForm())
@@ -47,23 +47,23 @@ export class DockForm
         this.form = fl.form
         this.form && this.display.setForm(this.form)
         
-        this.dockFormID = fl.dockFormID
+        this.ratufaFormID = fl.ratufaFormID
         if(this.form == null)
         {
             return false;
         }
         
-        this.api = new DockAPI(this.dockFormID)
+        this.api = new RatufaAPI(this.ratufaFormID)
         
         {
-            const presp = await payment.handleInProgressCase(this.dockFormID)
+            const presp = await payment.handleInProgressCase(this.ratufaFormID)
             if(presp)
             {
                 return true;
             }    
         }
         
-        const tokenField= fl.dockFormID+"_token"
+        const tokenField= fl.ratufaFormID+"_token"
         const prev_token = localStorage.getItem(tokenField);
         console.log("form loading: prev_token ", prev_token)
         
@@ -138,7 +138,7 @@ export class DockForm
             return false
         }
         console.log("commit: got the token ", token)
-        const api = new DockAPI(formID)
+        const api = new RatufaAPI(formID)
         const res = await api.commitSubmission(token)
         console.log("commitSubmission result ", res)
         return res
@@ -187,7 +187,7 @@ export class DockForm
             if(res.response?.type == "payment")
             {
                 const pmnt = res.response as ComputedPayment
-                this.api && payment.showPopup(this.dockFormID, pmnt, this.display, this.api)
+                this.api && payment.showPopup(this.ratufaFormID, pmnt, this.display, this.api)
             } 
             else
             {

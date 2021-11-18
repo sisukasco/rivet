@@ -1,13 +1,13 @@
 
 import {showPaymentPopup, addPaymentProcessorScript, handlePaymentInProgress} from "./PaymentHandler";
-import {ComputedPayment,DockAPI} from "../api";
+import {ComputedPayment,RatufaAPI} from "../api";
 import {IDisplay} from "../display/IDisplay";
 
 export default {
     showPopup(formID:string, 
         payment:ComputedPayment,
         display:IDisplay,
-        api:DockAPI)
+        api:RatufaAPI)
     {
         return showPaymentPopup(formID, payment,display,api)        
     },

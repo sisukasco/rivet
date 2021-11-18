@@ -1,4 +1,4 @@
-import {ComputedPayment,DockAPI} from "../api";
+import {ComputedPayment,RatufaAPI} from "../api";
 import {showPaypalButton} from "./paypal/PaypalHandler";
 import {showStripeButton} from "./stripe/StripeHandler";
 import {IDisplay} from "../display/IDisplay";
@@ -7,7 +7,7 @@ import {IDisplay} from "../display/IDisplay";
 export async function showPaymentPopup(formID:string, 
     payment:ComputedPayment,
     display:IDisplay,
-    api:DockAPI)
+    api:RatufaAPI)
 {
     if(payment.processor == "stripe")
     {

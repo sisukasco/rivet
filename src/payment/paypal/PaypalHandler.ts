@@ -1,6 +1,6 @@
 import paypal_button from "./PaypalButton.html";
 import {IDisplay} from "../../display/IDisplay";
-import {ComputedPayment, DockAPI} from "../../api"
+import {ComputedPayment, RatufaAPI} from "../../api"
 
 declare global {
     interface PaypalObject
@@ -15,7 +15,7 @@ declare global {
 
 declare var paypal:Paypal
 
-export async function showPaypalButton(display:IDisplay, payment:ComputedPayment, api:DockAPI)
+export async function showPaypalButton(display:IDisplay, payment:ComputedPayment, api:RatufaAPI)
 {
     display.popup.show({content: paypal_button});
     
