@@ -6,6 +6,7 @@ export class FormLoader
     public error=""
     public ratufaFormID=""
     public clientFormID=""
+    public nodeDomain=""
     public partialStatus="none"
     public form:HTMLFormElement|null=null
     
@@ -39,7 +40,15 @@ export class FormLoader
             return false;
         }
         
-        this.ratufaFormID = parsedUrl.query.f; 
+        this.ratufaFormID = parsedUrl.query.f;
+        
+        if(parsedUrl.query.n)
+        {
+            if(typeof parsedUrl.query.n == "string")
+            {
+                this.nodeDomain = parsedUrl.query.n;
+            }
+        }
         
         if(parsedUrl.query.i)
         {

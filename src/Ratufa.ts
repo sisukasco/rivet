@@ -53,7 +53,7 @@ export class Ratufa
             return false;
         }
         
-        this.api = new RatufaAPI(this.ratufaFormID)
+        this.api = new RatufaAPI(this.ratufaFormID, fl.nodeDomain)
         
         {
             const presp = await payment.handleInProgressCase(this.ratufaFormID)
@@ -138,7 +138,7 @@ export class Ratufa
             return false
         }
         console.log("commit: got the token ", token)
-        const api = new RatufaAPI(formID)
+        const api = new RatufaAPI(formID, "")
         const res = await api.commitSubmission(token)
         console.log("commitSubmission result ", res)
         return res

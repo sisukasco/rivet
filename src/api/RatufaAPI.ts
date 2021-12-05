@@ -16,16 +16,34 @@ export class RatufaAPI implements IRatufaAPI
     private ratufaURL:string="";
     private token:string="";
     
-    constructor(private ratufaFormID:string)
+    constructor(
+        private ratufaFormID:string, 
+        private nodeDomain:string
+        )
     {
         if(process.env.NODE_ENV == "production")
         {
-            this.ratufaURL = "https://api.ratufa.io";
+            if(this.nodeDomain)
+            {
+                this.ratufaURL = "https://"+this.nodeDomain
+            }
+            else
+            {
+                this.ratufaURL = "https://api.ratufa.io";
+            }
         }
         else
         {
-            this.ratufaURL = "http://localhost:3121";
+            if(this.nodeDomain)
+            {
+                this.ratufaURL = "http://"+this.nodeDomain
+            }
+            else
+            {
+                this.ratufaURL = "http://localhost:3121";
+            }
         }
+        console.log("ratufaURL -> ", this.ratufaURL)
     }
     
     
