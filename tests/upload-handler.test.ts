@@ -180,7 +180,6 @@ describe("upload-handler",()=>{
         const fd = fdc.getInputs()
         
         uh.merge(fd)
-        console.log("form data merged ", fd)
         expect((<FileUpload>fd["photo"]).file_name).toEqual(filename)
         
     })

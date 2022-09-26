@@ -18,7 +18,6 @@ export class Display implements IDisplay
         this.form = form
     }
     public displayThankYou(resp:SubmissionResponse){
-        console.log("Thank you page received ", resp)
         if(resp.type == "message")
         {
             const tu = resp as ThankYouMessage

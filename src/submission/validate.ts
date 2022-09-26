@@ -20,8 +20,6 @@ export function validateForm(form:HTMLFormElement,
     fields:Field[], fdd:FormDataValues)
 {
     let b = makeBoel();
-    console.log("fields ", fields)
-    console.log("fdd ", fdd)
     let res = b.validateFields(fields, fdd);
     $(".ratufa-error", $(form)).remove();
     if(res.has_errors && res.error_map)
@@ -45,15 +43,13 @@ export function showErrorsNextToElements(form:HTMLFormElement, errors_map: Error
         }
         if(elm.length > 1)
         {
-            console.log("Displaying error for an array of elements")
             let elms = elm.get()
             let parent = commonAncestor(elms[0],elms[elms.length - 1 ])
             if(parent)
             {
-                console.log("common parent found")
                 $(parent).append(`<div class="ratufa-error">${e}</div>`);
             }else{
-                console.log("common parent was not found")
+                console.error("common parent was not found")
             }
             
         }

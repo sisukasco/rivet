@@ -43,7 +43,6 @@ export class RatufaAPI implements IRatufaAPI
                 this.ratufaURL = "http://localhost:3121";
             }
         }
-        console.log("ratufaURL -> ", this.ratufaURL)
     }
     
     

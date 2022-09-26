@@ -9,7 +9,6 @@ export async function getLocation(){
         
         Axios.get(url).then((resp:AxiosResponse)=>
         {
-            console.log("location response ", resp.data)
             const loc:Location={
                 country : resp.data.country,
                 region : resp.data.region,

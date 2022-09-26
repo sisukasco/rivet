@@ -65,20 +65,15 @@ export class Ratufa
         
         const tokenField= fl.ratufaFormID+"_token"
         const prev_token = localStorage.getItem(tokenField);
-        console.log("form loading: prev_token ", prev_token)
         
         const isPartial = (fl.partialStatus == "page" || fl.partialStatus == "final")
         
-        if(isPartial){
-            console.log("before loading settings. isPartial is true")
-        }
+       
         this.formSettings = await this.api.loadFormSettings(prev_token, 
                                     isPartial)
         
-        console.log("received formsettings ", this.formSettings)
         if(this.formSettings && this.formSettings.token)
         {
-            console.log("saving token ", this.formSettings.token)
             localStorage.setItem(tokenField, this.formSettings.token)
         }
         
@@ -115,7 +110,6 @@ export class Ratufa
         this.submissionHandler = new FormSubmissionHandler(this.form, 
             this.formSettings, this.api)
         
-        console.log("Attaching to on submit ...")
         $(this.form).on("submit",  (e:Event) => this.onSubmit(e))
         
         this.submissionHandler.collectLocation()
@@ -137,10 +131,8 @@ export class Ratufa
         if(!token || token.length <= 0){
             return false
         }
-        console.log("commit: got the token ", token)
         const api = new RatufaAPI(formID, "")
         const res = await api.commitSubmission(token)
-        console.log("commitSubmission result ", res)
         return res
     }
     

@@ -10,11 +10,9 @@ window.Ratufa = null;
 
 
 $(function(){
-    console.log("loading Ratufa ...")
     window.Ratufa = new Ratufa();
     if(!window.Ratufa.isMute())
     {
-        console.log("Ratufa is not on mute")
         window.Ratufa.load();    
     }
 })

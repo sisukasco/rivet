@@ -18,7 +18,7 @@
         (function() {
             if(!payment)
             {
-                console.log("payment not set")
+                console.error("payment not set")
                 return
             }
             
@@ -34,7 +34,6 @@
                 sessionId: payment.checkout_id
                 }).then(function(resp)
                 {
-                    console.log("resp ", resp)
                 });
             
         })();

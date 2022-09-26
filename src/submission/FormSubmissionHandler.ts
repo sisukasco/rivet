@@ -38,7 +38,7 @@ export class FormSubmissionHandler
         try{
             this.rec.location = await getLocation()
         }catch(e){
-            console.log("Error collecting client info ", e)
+            console.error("Error collecting client info ", e)
         }
     }
     
@@ -79,7 +79,7 @@ export class FormSubmissionHandler
         try{
             sr = await this.api.postForm(this.rec)  
         }catch(e){
-            console.log("Submission handler received exception")
+            console.error("Submission handler received exception")
             return this.resolveSubmissionError(e)
         }
         

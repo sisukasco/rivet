@@ -21,7 +21,6 @@ export function uploadFile(endPoint:string,formID:string,token:string,field_name
             },
             onProgress: function(bytesUploaded, bytesTotal) {
                 var percentage = (bytesUploaded / bytesTotal * 100).toFixed(2)
-                console.log(bytesUploaded, bytesTotal, percentage + "%")
             },
             onSuccess: function() {
                 if(upload.url == null){

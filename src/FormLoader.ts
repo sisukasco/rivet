@@ -82,9 +82,7 @@ export class FormLoader
         }
         if($(this.form).hasClass("sfm_form"))
         {
-            console.log("loader This form was generated using Simfatic Forms ");
             const vv = getGlobalProperties("Validator")
-            console.log("loader - found validator ", vv)
             return true;
         }
         return false;
