@@ -74,19 +74,7 @@ export class FormLoader
         }
         return true;
     }
-    private checkSimfaticForms()
-    {
-        if(null == this.form)
-        {
-            return null;
-        }
-        if($(this.form).hasClass("sfm_form"))
-        {
-            const vv = getGlobalProperties("Validator")
-            return true;
-        }
-        return false;
-    }
+    
     private getFormObject():boolean
     {
         if(this.clientFormID)
@@ -140,14 +128,12 @@ export class FormLoader
             return false
         }
         
-        this.checkSimfaticForms()
-        
         return true;
     }
 }
 
 //From: https://stackoverflow.com/a/2226053
-function getGlobalProperties(partial:string) {
+/** function getGlobalProperties(partial:string) {
     var global = window; // window for browser environments
     for (var prop in global) {
       if (prop.indexOf(partial) > 0) // check the presence
@@ -155,3 +141,4 @@ function getGlobalProperties(partial:string) {
     }
     return null;
 }
+*/

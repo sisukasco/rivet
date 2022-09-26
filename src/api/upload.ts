@@ -19,9 +19,9 @@ export function uploadFile(endPoint:string,formID:string,token:string,field_name
                 //console.log("Failed because: " + error)
                 reject(error);
             },
-            onProgress: function(bytesUploaded, bytesTotal) {
+            /** onProgress: function(bytesUploaded, bytesTotal) {
                 var percentage = (bytesUploaded / bytesTotal * 100).toFixed(2)
-            },
+            },*/
             onSuccess: function() {
                 if(upload.url == null){
                     throw new Error("upload.url is empty!")

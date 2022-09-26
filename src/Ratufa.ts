@@ -143,11 +143,6 @@ export class Ratufa
         
         e.preventDefault()
         
-       /* const sfm_form_submitted = $("[type=hidden][name=sfm_form_submitted]", this.form).val()
-        if(!sfm_form_submitted|| (''+sfm_form_submitted).length < 2){
-            console.log("Form is not (final) submitted yet. passing this submission event")
-            return true ;           
-        }*/
         
         if(this.form.validator && 
            this.form.validator.validate && 
