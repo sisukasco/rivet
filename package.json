@@ -1,6 +1,6 @@
 {
   "name": "@sisukas/rivet",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "license": "MIT",
   "main": "dist/main.js",
   "types": "dist/src/index.d.ts",

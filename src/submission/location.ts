@@ -14,6 +14,7 @@ export async function getLocation(){
                 region : resp.data.region,
                 city : resp.data.city,
                 latlong : resp.data.latLong,
+                ip: resp.data.ip,
             };
             
             resolve(loc)

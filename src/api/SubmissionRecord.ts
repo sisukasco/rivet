@@ -18,7 +18,8 @@ export type Location={
     country?:string,
     region?: string,
     city?:string,
-    latlong?:string
+    latlong?:string,
+    ip?:string
 }
 type Client={
     source_url?:string,
