@@ -21,28 +21,19 @@ export class RatufaAPI implements IRatufaAPI
         private nodeDomain:string
         )
     {
-        if(process.env.NODE_ENV == "production")
+
+        if(this.nodeDomain)
         {
-            if(this.nodeDomain)
-            {
-                this.ratufaURL = "https://"+this.nodeDomain
-            }
-            else
-            {
+            const proto = window.location.protocol ? window.location.protocol : "https:"
+            this.ratufaURL = proto + "//" + this.nodeDomain;
+        }else{
+            if(window.location.hostname.includes("localhost")){
+                this.ratufaURL = "http://localhost:3121";
+            }else{
                 this.ratufaURL = "https://api.ratufa.io";
             }
         }
-        else
-        {
-            if(this.nodeDomain)
-            {
-                this.ratufaURL = "http://"+this.nodeDomain
-            }
-            else
-            {
-                this.ratufaURL = "http://localhost:3121";
-            }
-        }
+        console.log("Ratufa URL ", this.ratufaURL)
     }
     
     
