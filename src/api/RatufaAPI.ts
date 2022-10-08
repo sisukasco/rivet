@@ -24,7 +24,10 @@ export class RatufaAPI implements IRatufaAPI
 
         if(this.nodeDomain)
         {
-            const proto = window.location.protocol ? window.location.protocol : "https:"
+            let proto = "https:"
+            if(this.nodeDomain.includes("localhost")){
+                proto = "http:"
+            }
             this.ratufaURL = proto + "//" + this.nodeDomain;
         }else{
             if(window.location.hostname.includes("localhost")){
