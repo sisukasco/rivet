@@ -7,7 +7,7 @@ Connect your form to Ratufa
 ### 1.0.16
 * can handle multiple forms that are connected to Ratufa
 Sample code to connect another form 
-```javascript
+```html
 <script>
 window.addEventListener("load", function() {
     window.RatufaContainer.loadForm({

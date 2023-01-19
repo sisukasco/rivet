@@ -106,6 +106,9 @@ export class FormLoader
             {
                 this.error = `There are more than one forms in this page. 
                 You have to mention the ID of the form to attach to.
+                <p>
+                See <a href="https://www.ratufa.io/docs/connect-two-forms/">this page for more info.</a>
+                </p>
                 `
                 return false;
             }
