@@ -1,6 +1,14 @@
 import {parseUrl} from "query-string";
 import $ from "@sisukas/jquery"
 
+export type LoadParams = {
+    ratufaFormID:string;
+    clientFormID: string;
+    nodeDomain: string;
+}
+
+
+
 export class FormLoader
 {
     public error=""
@@ -10,21 +18,12 @@ export class FormLoader
     public partialStatus="none"
     public form:HTMLFormElement|null=null
     
-    public getScriptTagURL()
-    {
-        let src = $("#ratufa_loader").attr('src')
-        if(!src)
-        {
-            this.error = `Couldn't get the parameters for accessing the form. You have to copy and paste the script tag correctly`;
-            return false;
-        }
-        return parseUrl(src)
-    }
+
     public collectScriptTagParams():Boolean
     {
-        let parsedUrl = this.getScriptTagURL()
-        
+        let parsedUrl = getScriptTagURL()
         if( false === parsedUrl ){
+            this.error = `Couldn't get the parameters for accessing the form. You have to copy and paste the script tag correctly`;
             return false
         }
         
@@ -117,12 +116,22 @@ export class FormLoader
             }
         }
     }
-    public loadForm():boolean
+    public loadForm(params:LoadParams|undefined):boolean
     {
-        if(!this.collectScriptTagParams())
+        if(!params)
         {
-            return false;
+            console.log("does not have params loading from URL...")
+            if(!this.collectScriptTagParams())
+            {
+                return false;
+            }
+        }else{
+            console.log("has params ", params)
+            this.ratufaFormID = params.ratufaFormID;
+            this.nodeDomain = params.nodeDomain;
+            this.clientFormID = params.clientFormID;
         }
+        
         if(!this.getFormObject())
         {
             return false
@@ -132,13 +141,13 @@ export class FormLoader
     }
 }
 
-//From: https://stackoverflow.com/a/2226053
-/** function getGlobalProperties(partial:string) {
-    var global = window; // window for browser environments
-    for (var prop in global) {
-      if (prop.indexOf(partial) > 0) // check the presence
-        return global[prop]
+export function getScriptTagURL()
+{
+    let src = $("#ratufa_loader").attr('src')
+    if(!src)
+    {
+        return false;
     }
-    return null;
+    return parseUrl(src)
 }
-*/
+

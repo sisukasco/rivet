@@ -1,5 +1,5 @@
 import $ from "@sisukas/jquery"
-import {FormLoader} from "./FormLoader"
+import {FormLoader, LoadParams} from "./FormLoader"
 import {parseFormSettings} from "@sisukas/form-parser";
 import {FormSettings} from "./api/settings"
 import {RatufaAPI, ComputedPayment} from "./api"
@@ -10,6 +10,9 @@ import payment from "./payment";
 import {Display} from "./display/Display";
 
 const version = thispackage.version
+
+
+
 export class Ratufa 
 {
     private display = new Display();
@@ -20,26 +23,14 @@ export class Ratufa
     private submissionHandler:FormSubmissionHandler|null=null; 
     private version=version;
     
-    public isMute()
-    {
-        const fl = new FormLoader()
-        let url = fl.getScriptTagURL()
-        if( false === url ){
-            return false
-        }
-        
-        if(url.query.mute && url.query.mute == "y"){
-            return true
-        }
-        return false
-    }
-    
-    public async load()
+     
+    public async load(params:LoadParams|undefined)
     {
         console.log("Ratufa loader version ", this.version)
+        console.log("loading ...")
         this.display.load();
         const fl = new FormLoader()
-        if(!fl.loadForm())
+        if(!fl.loadForm(params))
         {
             this.display.popup.showPopup(fl.error)
             return false;

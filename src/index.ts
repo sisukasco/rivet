@@ -1,21 +1,21 @@
 import $ from "@sisukas/jquery";
 import {Ratufa} from "./Ratufa";
+import { RatufaContainer } from "./Container";
 import {SubmissionRecord} from "./api/SubmissionRecord";
 
 declare global {
-    interface Window { Ratufa: Ratufa|null; }
+    interface Window { 
+        RatufaContainer: RatufaContainer|null; 
+    }
 }
 
-window.Ratufa = null;
+window.RatufaContainer = new RatufaContainer();
 
 
 $(function(){
-    window.Ratufa = new Ratufa();
-    if(!window.Ratufa.isMute())
-    {
-        window.Ratufa.load();    
-    }
+    window.RatufaContainer?.loadFromURL()
 })
+
 
 export {
     Ratufa,
