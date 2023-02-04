@@ -87,7 +87,7 @@ describe("extract-input-values",()=>{
         const form = <HTMLFormElement>$("#myform")[0]
         
         const inp1 = form.elements[0]
-        $(inp1).click()
+        $(inp1).trigger("click")
         const inp2 = form.elements[1]
         
         const fd1 = new FormElement(<HTMLElement>inp1)
@@ -114,7 +114,7 @@ describe("extract-input-values",()=>{
         
         const form = <HTMLFormElement>$("#myform")[0]
         const inp1 = form.elements[0]
-        $(inp1).click()
+        $(inp1).trigger("click")
         const inp2 = form.elements[1]
         
         const fd1 = new FormElement(<HTMLElement>inp1)
@@ -141,9 +141,9 @@ describe("extract-input-values",()=>{
         
         const form = <HTMLFormElement>$("#myform")[0]
         const inp1 = form.elements[0]
-        $(inp1).click()
+        $(inp1).trigger("click")
         const inp2 = form.elements[1]
-        $(inp2).click()
+        $(inp2).trigger("click")
         
         const fd1 = new FormElement(<HTMLElement>inp1)
         const res = fd1.getValue()
@@ -171,7 +171,7 @@ describe("extract-input-values",()=>{
         idx = (idx<0) ? 0:idx;
         
         const inpx = form.elements[idx]
-        $(inpx).click()
+        $(inpx).trigger("click")
         
         const fd = new FormElement(<HTMLElement>inpx)
         const res = fd.getValue()

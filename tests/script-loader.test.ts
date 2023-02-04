@@ -65,7 +65,7 @@ describe("load-ratufa-script",()=>{
         <script id="ratufa_loader" src="dock.app?f=${fid}&i=${anotherID}"></script>
         `
         const f = new FormLoader()
-        const ret = f.loadForm()
+        const ret = f.loadForm(undefined)
         expect(ret).toEqual(false)
         expect(f.error.length).toBeGreaterThan(0)
     })
@@ -79,7 +79,7 @@ describe("load-ratufa-script",()=>{
         <script id="ratufa_loader" src="dock.app?f=${fid}&i=${idOfForm}"></script>
         `
         const f = new FormLoader()
-        const ret = f.loadForm()
+        const ret = f.loadForm(undefined)
         expect(ret).toEqual(true)
         expect(f.ratufaFormID).toEqual(fid)
         expect(f.clientFormID).toEqual(idOfForm)
@@ -101,7 +101,7 @@ describe("load-ratufa-script",()=>{
         <script id="ratufa_loader" src="dock.app?f=${fid}"></script>
         `
         const f = new FormLoader()
-        const ret = f.loadForm()
+        const ret = f.loadForm(undefined)
         expect(ret).toEqual(true)
         expect(f.ratufaFormID).toEqual(fid)
         
@@ -124,7 +124,7 @@ describe("load-ratufa-script",()=>{
         <script id="ratufa_loader" src="dock.app?f=${fid}"></script>
         `
         const f = new FormLoader()
-        const ret = f.loadForm()
+        const ret = f.loadForm(undefined)
         expect(ret).toEqual(false)
         expect(f.form).toBeNull()
         expect(f.error.length).toBeGreaterThan(0)
@@ -139,7 +139,7 @@ describe("load-ratufa-script",()=>{
         <script id="ratufa_loader" src="dock.app?f=${fid}"></script>
         `
         const f = new FormLoader()
-        const ret = f.loadForm()
+        const ret = f.loadForm(undefined)
         expect(ret).toEqual(false)
         expect(f.form).toBeNull()
         expect(f.error.length).toBeGreaterThan(0)

@@ -12,7 +12,7 @@ describe("upload-file",()=>{
         expect(getParameterFromURL("12345")).toEqual("12345")
         expect(getParameterFromURL("http://website.com/param/")).toEqual("param")
     })
-    test("simple file upload",async ()=>
+    test("upld101: simple file upload",async ()=>
     {
         const upldid = faker.random.word()
         let uploadObj={
@@ -30,7 +30,7 @@ describe("upload-file",()=>{
         const formID="myFormID"
         const filename = "hello.png"
         const testImageFile = new File(["hello"],filename , { type: "image/png" });
-        const res = await uploadFile("http://website.com",formID, testImageFile)
+        const res = await uploadFile("http://website.com",formID,faker.random.word(),"hello", testImageFile)
         expect(res).toEqual(upldid)
     })
     
@@ -54,7 +54,7 @@ describe("upload-file",()=>{
         const testImageFile = new File(["hello"],filename , { type: "image/png" });
         let err=null
         try{
-            await uploadFile("http://website.com",formID, testImageFile)    
+            await uploadFile("http://website.com",formID, faker.random.word(),"hello",testImageFile)    
         }catch(e){
             err= e
         }
