@@ -605,33 +605,33 @@
   resolved "https://registry.yarnpkg.com/@sisukas/coder-interface/-/coder-interface-0.1.4.tgz#41e779ab89d6b4713cadd49b3fe6ecd0a3fbca11"
   integrity sha512-8czqdjFSQtwbVxQQYmM2YfKVXoSW0aP6QONjNo4KU4a1/OE7FtUNuxsH+MaIyILJd663/7O9m4PSDblUCCyj0w==
 
-"@sisukas/coder@1.0.9":
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/@sisukas/coder/-/coder-1.0.9.tgz#ea57d66f3b4dd742fb8fbc4a4a0729e71b6837e4"
-  integrity sha512-AhrymjQs/ANMtgxRsAdWHRBPGcJLHZ3per/tHJLRTxGeNPvK0L6ZRt5B6xKBUElp4KKzxs+rSoy930WuIA8t4A==
+"@sisukas/coder@1.1.15":
+  version "1.1.15"
+  resolved "https://registry.yarnpkg.com/@sisukas/coder/-/coder-1.1.15.tgz#76ec49ab3601d996da85ce31189af9435aa211c6"
+  integrity sha512-j/QwmUTCFaYBvM1oeBe9jnfjWCAJ9CzG5CWLsNzZjEyqyxsKmS60pTIFNyGpYAGFI240dwm2AHkHWndtjwSjUg==
   dependencies:
     "@f/to-inline-style" "^0.1.4"
     "@sisukas/coder-interface" "*"
     lodash.mergewith "^4.6.2"
     xss "^1.0.9"
 
-"@sisukas/form-ds@^1.1.19":
-  version "1.1.19"
-  resolved "https://registry.yarnpkg.com/@sisukas/form-ds/-/form-ds-1.1.19.tgz#7cffc46df941f746908219c4039e61d58f14c7b8"
-  integrity sha512-fploppSoIrUsNIdotlHgp8wDmTAbMkwztOtiiaEg4TPJC3AT4rsQZB4pxlhfyeldt7P75xYOcoLQxfhGjgTZ4Q==
+"@sisukas/form-ds@1.3.33":
+  version "1.3.33"
+  resolved "https://registry.yarnpkg.com/@sisukas/form-ds/-/form-ds-1.3.33.tgz#342a9e2f2f48c83c712302c4ac1d85e510bf970b"
+  integrity sha512-3/wYJmxabdUu1vBts+RJ9z2fXjXYZ2ain4h6gq3XZVoeiK6JHWQTvnTF0VD3kO8IQEa/U1LXO5RNrh1yGnEieA==
   dependencies:
-    "@sisukas/coder" "1.0.9"
+    "@sisukas/coder" "1.1.15"
     "@sisukas/coder-interface" "^0.1.2"
     class-transformer "0.4.0"
     reflect-metadata "^0.1.13"
     uniqid "^5.3.0"
 
-"@sisukas/form-parser@^1.0.18":
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/@sisukas/form-parser/-/form-parser-1.0.18.tgz#969cd77bac2cce7715bb884c2a7dff9c7fa64e4d"
-  integrity sha512-7UyqLOrnXrOAG9LZVibKDbscMcHfN/RhOC2WIbjyt0B3rUN+JeYZBrjpC244VaYGdiJOX/aDIvRvS4j4L5pbHw==
+"@sisukas/form-parser@1.0.19":
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/@sisukas/form-parser/-/form-parser-1.0.19.tgz#74b4c5c2527222650cb1229b541d1815671fee27"
+  integrity sha512-8l2RdQGa0JCvJKmHcZNSC4Q9MBvK1qiL/IwTXrvq/A8aQ+y1GkByUdshGmwe+ZuFCLMfMko6e47U77wYnajhDQ==
   dependencies:
-    "@sisukas/form-ds" "^1.1.19"
+    "@sisukas/form-ds" "1.3.33"
     "@sisukas/jquery" "^3.6.0"
     reflect-metadata "^0.1.13"
 

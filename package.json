@@ -1,6 +1,6 @@
 {
   "name": "@sisukas/rivet",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "license": "MIT",
   "main": "dist/main.js",
   "types": "dist/src/index.d.ts",
@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@sisukas/boel": "^1.0.8",
-    "@sisukas/form-parser": "^1.0.18",
+    "@sisukas/form-parser": "1.0.19",
     "@sisukas/jquery": "^3.6.0",
     "@sisukas/tus-js-client": "^2.3.1",
     "axios": "^0.21.1",

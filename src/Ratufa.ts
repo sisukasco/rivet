@@ -87,8 +87,13 @@ export class Ratufa
             }catch(e){
                 fs.timezone = ''
             }
+            try{
+                await this.api.postFormSettings(fs);
+            }catch(e){
+                this.display.popup.showPopup((e as Error).message)
+                return false;
+            }
             
-            await this.api.postFormSettings(fs);
         }
         if(this.formSettings.payment_processor)
         {

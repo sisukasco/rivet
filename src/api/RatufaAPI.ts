@@ -65,8 +65,13 @@ export class RatufaAPI implements IRatufaAPI
     async postFormSettings(fs: Object)
     {
         const url = this.ratufaURL+"/v1.0/form/"+this.ratufaFormID+"/init";
-        await Axios.post(url,fs);
-        return true;
+        return Axios.post(url,fs).catch((e)=>{
+            if(e.response && e.response.data.msg){
+                throw new Error(e.response.status+" "+e.response.statusText+": "+e.response.data.msg)
+            }else{
+                throw new Error("Error initing the form with Ratufa")
+            }
+        });
     }
     
     async postForm(sr:SubmissionRecord)
