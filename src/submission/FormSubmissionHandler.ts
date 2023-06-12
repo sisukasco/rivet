@@ -62,6 +62,8 @@ export class FormSubmissionHandler
         this.rec.token = this.settings.token
         
         disp.popup.showProgress()
+        await this.collectLocation();
+
         const upload_result = await this.uploadHandler.uploadFiles(fdd, this.api)
         if(upload_result.hasErrors)
         {

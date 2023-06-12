@@ -108,7 +108,7 @@ export class Ratufa
         
         $(this.form).on("submit",  (e:Event) => this.onSubmit(e))
         
-        this.submissionHandler.collectLocation()
+        
         if(fl.partialStatus == "page")
         {
             this.submissionHandler.markPartial()
