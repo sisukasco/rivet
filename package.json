@@ -12,6 +12,7 @@
     "build": "rm -rf ./dist && webpack",
     "dev": "rm -rf ./dist && webpack --watch",
     "prod": "rm -rf ./dist && webpack --mode=\"production\"",
+    "prepublishOnly": "yarn prod",
     "release": "yarn publish  --access public",
     "devdep": "yarn build && cp ./dist/main.js ../site/static/c/ld.js",
     "sizeup": "webpack --json > stats.json && webpack-bundle-analyzer stats.json",
